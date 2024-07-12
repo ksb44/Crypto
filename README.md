@@ -1,40 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repo
+2. Run `npm install`
+3. Run `npm run dev` to start the development server
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open the .env.local file and add your MongoDB connection string as follows:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+    MONGO_URI=your_mongodb_connection_string
+6. Replace your_mongodb_connection_string with your actual MongoDB connection string.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Features
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- Poll real-time data every few seconds for cryptocurrencies from CoinGecko API.
+- Store the data in a MongoDB database.
+- Fetch the most recent 20 real-time data entries for a particular cryptocurrency.
+- Display the data in a table on the frontend.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## API Endpoints
 
-## Learn More
+Fetch Crypto Data
+URL: /api/fetchCryptoData
+Method: GET
+Description: Fetches real-time data for cryptocurrencies and stores it in MongoDB.
+Get Prices
+URL: /api/getPrices
+Method: GET
+Description: Retrieves the most recent 20 price entries for a specific cryptocurrency from MongoDB.
+Query Parameters:
+crypto (string): The cryptocurrency to fetch prices for (e.g., bitcoin, ethereum).
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
